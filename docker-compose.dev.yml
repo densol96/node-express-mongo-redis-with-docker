@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  node-app:
+    build: 
+      args:
+        NODE_ENV: development
+    ports:
+      - "3000:4000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - ME_CONFIG_MONGODB_URL=mongodb://solodeni:password123@mongo:27017/
+      - SESSION_SECRET=secret
+    command:
+      npm run start:dev
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: solodeni
+      MONGO_INITDB_ROOT_PASSWORD: password123
+
+    
