@@ -31,7 +31,7 @@ app.use(
     cookie: {
       httpOnly: true, // защита от XSS атак
       secure: process.env.NODE_ENV === "production", // cookies только через HTTPS в production
-      maxAge: 30000, // время жизни cookie в миллисекундах (30 секунд)
+      maxAge: 1000 * 60 * 30, // время жизни cookie в миллисекундах (30 минут)
       saveUninitialized: false, // recommended: only save session when data exists
       resave: true,
     },
