@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const postRouter = require("./routes/postRoutes");
 const userRouter = require("./routes/userRoutes");
+const cors = require("cors");
 
 const session = require("express-session");
 const RedisStore = require("connect-redis").default;
@@ -23,6 +24,8 @@ let redisStore = new RedisStore({
   prefix: "myapp:",
 });
 
+app.enable("trust proxy");
+app.use(cors({}));
 // Initialize session storage.
 app.use(
   session({

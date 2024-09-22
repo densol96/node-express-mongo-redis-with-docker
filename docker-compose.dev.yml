@@ -1,18 +1,21 @@
 version: "3"
 
 services:
+  nginx:
+    ports:
+    - "3000:80"
   node-app:
     build: 
       args:
         NODE_ENV: development
-    ports:
-      - "3000:4000"
+    # ports:
+    #   - "3000:4000"
     volumes:
       - ./:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
-      - PORT=4000
+      - PORT=3000
       - ME_CONFIG_MONGODB_URL=mongodb://solodeni:password123@mongo:27017/
       - SESSION_SECRET=secret
     command:
