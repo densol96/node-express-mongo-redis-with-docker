@@ -3,7 +3,7 @@ version: "3"
 services:
   nginx:
     ports:
-    - "80:80"
+      - "80:80"
   node-app:
     build: 
       context: .
@@ -13,6 +13,12 @@ services:
     #   - "3000:3000"
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=${PORT}
+      - ME_CONFIG_MONGODB_URL=${ME_CONFIG_MONGODB_URL}
+      - SESSION_SECRET=${SESSION_SECRET}
     command:
       npm run start:prod
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}

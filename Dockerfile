@@ -8,3 +8,4 @@ RUN if [ "$NODE_ENV" = "development" ]; \
     fi
 COPY . .
 CMD ["npm", "run", "start:dev"]
+## npm install --production
