@@ -81,6 +81,14 @@ connectWithRetry();
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.route("/").get((req, res) => {
+  res
+    .status(200)
+    .send(
+      "<h1>Hello there from edited file!</h1><h2>Hello there from edited file!</h2>"
+    );
+});
+
 app.use("/posts", postRouter);
 app.use("/users", userRouter);
 
