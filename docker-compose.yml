@@ -24,3 +24,4 @@ volumes:
 # docker compose -f docker-compose.yml -f docker-compose.dev.yml down
 # docker exec -it proper-node-docker-node-app-1 sh
 # docker logs proper-node-docker-node-app-1 -f
+# docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
